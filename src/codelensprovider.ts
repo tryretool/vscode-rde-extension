@@ -28,13 +28,13 @@ function getTestsBlocks(parsedNode: ParsedNode, parseResults: ParsedNode[]): Cod
     }),
     new CodeLens(range, {
       title: "Watch Test",
-      command: "bazel-jest.runTest",
+      command: "bazel-jest.watchTest",
       arguments: [new TestSpec(fullTestName, range), Instruction.Watch],
     }),
     new CodeLens(range, {
-      title: "Update Snapshots",
-      command: "bazel-jest.runTest",
-      arguments: [new TestSpec(fullTestName, range), Instruction.UpdateSnapshots],
+      title: "Debug Test",
+      command: "bazel-jest.debugTest",
+      arguments: [new TestSpec(fullTestName, range), Instruction.Debug],
     }),
   );
 
@@ -51,7 +51,9 @@ export class CodeLensProvider implements vscode.CodeLensProvider {
       const text = document.getText();
       const parseResults = parse(document.fileName, text).root.children ?? [];
       const codeLens: CodeLens[] = [];
-      parseResults.forEach((parseResult) => codeLens.push(...getTestsBlocks(parseResult, parseResults)));
+      if (document.uri.fsPath.includes("backend/") || document.uri.fsPath.includes("packages/")) {
+        parseResults.forEach((parseResult) => codeLens.push(...getTestsBlocks(parseResult, parseResults)));
+      }
       return codeLens;
     } catch (e) {
       // Ignore error and keep showing Run/Debug buttons at same position

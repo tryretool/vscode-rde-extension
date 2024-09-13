@@ -1,10 +1,10 @@
 import * as vscode from "vscode";
 
 export function getOrCreateTerminal(workspace: vscode.WorkspaceFolder): vscode.Terminal {
-  const terminal = vscode.window.terminals.find((terminal) => terminal.name === "Bazel Jest");
+  const terminal = vscode.window.activeTerminal;
   if (terminal) {
     return terminal;
   }
 
-  return vscode.window.createTerminal({ name: "Bazel Jest", cwd: workspace.uri.path, shellPath: "/bin/bash" });
+  return vscode.window.createTerminal({ cwd: workspace.uri.path });
 }

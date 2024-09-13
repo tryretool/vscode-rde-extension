@@ -3,18 +3,14 @@
   "displayName": "Bazel Jest Runner",
   "description": "Run Jest test with Bazel in VSCode",
   "version": "0.1.0",
-  "files": [
-    "out",
-    "images"
-  ],
-  "publisher": "mscolnick",
+  "publisher": "TumuGuskun",
   "engines": {
     "vscode": "^1.59.0"
   },
-  "icon": "images/icon.png",
+  "icon": "images/icon.jpeg",
   "repository": {
     "type": "git",
-    "url": "https://github.com/mscolnick/vscode-bazel-jest.git"
+    "url": "https://github.com:tryretool/vscode-bazel-jest.git"
   },
   "categories": [
     "Other"
@@ -35,27 +31,20 @@
     "commands": [
       {
         "command": "bazel-jest.runTestsInFile",
-        "title": "Bazel-Jest: Run tests in current file"
+        "title": "Retool-Bazel-Jest: Run tests in current file"
       },
       {
         "command": "bazel-jest.watchTestsInFile",
-        "title": "Bazel-Jest: Watch tests in current file"
+        "title": "Retool-Bazel-Jest: Watch tests in current file"
       },
       {
-        "command": "bazel-jest.updateSnapshotForFile",
-        "title": "Bazel-Jest: Update snapshot for tests in current file"
+        "command": "bazel-jest.debugTestsInFile",
+        "title": "Retool-Bazel-Jest: Debug tests in current file"
       }
     ],
     "configuration": {
       "type": "object",
-      "title": "Bazel Jest",
-      "properties": {
-        "bazel-jest.extraArgs": {
-          "type": "string",
-          "default": "--test_output=errors",
-          "description": "'bazel test' additional args"
-        }
-      }
+      "title": "Retool Bazel Jest"
     }
   },
   "scripts": {
