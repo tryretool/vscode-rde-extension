@@ -21,11 +21,14 @@ export function activate(context: vscode.ExtensionContext): void {
     registerTextEditorCommand("bazel-jest.watchTestsInFile", (editor: vscode.TextEditor) => {
       runTestsInFile(editor, Instruction.Watch);
     }),
-    registerTextEditorCommand("bazel-jest.updateSnapshotForFile", (editor: vscode.TextEditor) => {
-      runTestsInFile(editor, Instruction.Test);
+    registerTextEditorCommand("bazel-jest.debugTest", (editor: vscode.TextEditor) => {
+      runTestsInFile(editor, Instruction.Debug);
     }),
-    registerTextEditorCommand("bazel-jest.runTest", (editor: vscode.TextEditor, _edit, spec: TestSpec, instruction: Instruction) => {
-      runTestFromCodeLens(editor, spec, instruction);
+    registerTextEditorCommand("bazel-jest.runTest", (editor: vscode.TextEditor, _edit, spec: TestSpec) => {
+      runTestFromCodeLens(editor, spec, Instruction.Test);
+    }),
+    registerTextEditorCommand("bazel-jest.watchTest", (editor: vscode.TextEditor, _edit, spec: TestSpec) => {
+      runTestFromCodeLens(editor, spec, Instruction.Watch);
     }),
   ];
 

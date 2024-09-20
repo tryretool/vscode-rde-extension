@@ -4,6 +4,7 @@ export function escapeRegExp(s: string): string {
   return escapedString.replace(/\\\(\\\.\\\*\\\?\\\)/g, "(.*?)"); // should revert the escaping of match all regex patterns.
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function findFullTestName(selectedLine: number, children: any[]): string {
   if (!children) {
     return "";

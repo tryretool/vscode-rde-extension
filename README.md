@@ -2,8 +2,14 @@
 
 ## Overview
 
-Run Jest test with Bazel in your IDE.
+Run your Jest tests in VSCode.
 
-## Changelog
+## Usage
 
-[CHANGELOG.md](https://github.com/mscolnick/vscode-bazel-jest/blob/master/CHANGELOG.md)
+Run, Watch, and Debug buttons will appear above all `describe` and `it` blocks. Clicking on them will run the correct bazel command for that block in the vscode terminal.
+
+Note: the bazel command may fail due to the test working yet.
+
+---
+
+Based off of mscolnick's [vscode-bazel-jest](https://github.com/mscolnick/vscode-bazel-jest). Used/modified with permission

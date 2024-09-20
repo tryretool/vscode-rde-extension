@@ -2,28 +2,14 @@
   "name": "bazel-jest",
   "displayName": "Bazel Jest Runner",
   "description": "Run Jest test with Bazel in VSCode",
-  "version": "0.1.0",
-  "files": [
-    "out",
-    "images"
-  ],
-  "publisher": "mscolnick",
+  "version": "0.0.1",
+  "publisher": "TumuGuskun",
   "engines": {
     "vscode": "^1.59.0"
   },
-  "icon": "images/icon.png",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/mscolnick/vscode-bazel-jest.git"
-  },
+  "icon": "images/icon.jpeg",
   "categories": [
     "Other"
-  ],
-  "keywords": [
-    "bazel",
-    "jest",
-    "test",
-    "runner"
   ],
   "activationEvents": [
     "onLanguage:typescript",
@@ -42,20 +28,13 @@
         "title": "Bazel-Jest: Watch tests in current file"
       },
       {
-        "command": "bazel-jest.updateSnapshotForFile",
-        "title": "Bazel-Jest: Update snapshot for tests in current file"
+        "command": "bazel-jest.debugTestsInFile",
+        "title": "Bazel-Jest: Debug tests in current file"
       }
     ],
     "configuration": {
       "type": "object",
-      "title": "Bazel Jest",
-      "properties": {
-        "bazel-jest.extraArgs": {
-          "type": "string",
-          "default": "--test_output=errors",
-          "description": "'bazel test' additional args"
-        }
-      }
+      "title": "Bazel Jest"
     }
   },
   "scripts": {
