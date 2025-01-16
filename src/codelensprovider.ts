@@ -51,7 +51,7 @@ export class CodeLensProvider implements vscode.CodeLensProvider {
       const text = document.getText();
       const parseResults = parse(document.fileName, text).root.children ?? [];
       const codeLens: CodeLens[] = [];
-      if (document.uri.fsPath.includes("backend/") || document.uri.fsPath.includes("packages/")) {
+      if (!document.uri.fsPath.includes("frontend/cypress/")) {
         parseResults.forEach((parseResult) => codeLens.push(...getTestsBlocks(parseResult, parseResults)));
       }
       return codeLens;
