@@ -51,9 +51,7 @@ export class CodeLensProvider implements vscode.CodeLensProvider {
       const text = document.getText();
       const parseResults = parse(document.fileName, text).root.children ?? [];
       const codeLens: CodeLens[] = [];
-      if (!document.uri.fsPath.includes("frontend/cypress/")) {
-        parseResults.forEach((parseResult) => codeLens.push(...getTestsBlocks(parseResult, parseResults)));
-      }
+      parseResults.forEach((parseResult) => codeLens.push(...getTestsBlocks(parseResult, parseResults)));
       return codeLens;
     } catch (e) {
       // Ignore error and keep showing Run/Debug buttons at same position
