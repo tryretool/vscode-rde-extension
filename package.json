@@ -1,6 +1,6 @@
 {
   "name": "rde-bazel-jest",
-  "displayName": "Bazel Jest Runner",
+  "displayName": "RDE Bazel Jest Runner",
   "description": "Run Jest test with Bazel in VSCode",
   "version": "0.0.2",
   "publisher": "retool-epd",
