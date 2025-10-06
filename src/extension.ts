@@ -1,5 +1,5 @@
 import * as vscode from "vscode";
-import { CodeLensProvider } from "./CodeLensProvider";
+import { CodeLensProvider } from "./codelensprovider";
 import { runTestFromCodeLens, runTestsInFile } from "./commands";
 import { Instruction } from "./instruction";
 import { TestSpec } from "./utils/spec";
@@ -21,8 +21,11 @@ export function activate(context: vscode.ExtensionContext): void {
     registerTextEditorCommand("bazel-jest.watchTestsInFile", (editor: vscode.TextEditor) => {
       runTestsInFile(editor, Instruction.Watch);
     }),
-    registerTextEditorCommand("bazel-jest.debugTest", (editor: vscode.TextEditor) => {
+    registerTextEditorCommand("bazel-jest.debugTestsInFile", (editor: vscode.TextEditor) => {
       runTestsInFile(editor, Instruction.Debug);
+    }),
+    registerTextEditorCommand("bazel-jest.debugTest", (editor: vscode.TextEditor, _edit, spec: TestSpec) => {
+      runTestFromCodeLens(editor, spec, Instruction.Debug);
     }),
     registerTextEditorCommand("bazel-jest.runTest", (editor: vscode.TextEditor, _edit, spec: TestSpec) => {
       runTestFromCodeLens(editor, spec, Instruction.Test);
