@@ -1,9 +1,9 @@
 {
-  "name": "bazel-jest",
+  "name": "rde-bazel-jest",
   "displayName": "Bazel Jest Runner",
   "description": "Run Jest test with Bazel in VSCode",
   "version": "0.0.2",
-  "publisher": "TumuGuskun",
+  "publisher": "retool-epd",
   "engines": {
     "vscode": "^1.59.0"
   },
